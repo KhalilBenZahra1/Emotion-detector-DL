@@ -1,5 +1,31 @@
-venv/
-tf_env/
+# Python
 __pycache__/
 *.pyc
+*.pyo
+
+# Environnement
+.env
+venv/
+.venv/
+
+# Modèles lourds
+*.keras
+*.h5
+
+# Certificats SSL
+*.key
+*.pem
+
+# Logs
+*.log
+
+# IDE
 .vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+*.keras
+*.h5
