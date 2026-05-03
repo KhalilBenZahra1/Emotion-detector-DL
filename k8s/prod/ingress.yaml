@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: emotion-ingress
+  namespace: emotion-prod
+  annotations:
+    networking.gke.io/managed-certificates: emotion-certificate
+    kubernetes.io/ingress.class: "gce"
+    ingress.kubernetes.io/force-ssl-redirect: "true"
+spec:
+  rules:
+    - host: emotion-detection.duckdns.org
+      http:
+        paths:
+          - path: /*
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: emotion-frontend-service
+                port:
+                  number: 80

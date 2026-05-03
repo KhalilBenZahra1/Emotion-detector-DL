@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: emotion-backend
+  namespace: emotion-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: emotion-backend
+  template:
+    metadata:
+      labels:
+        app: emotion-backend
+    spec:
+      containers:
+        - name: emotion-backend
+          image: us-central1-docker.pkg.dev/emotion-detection-k8s/emotion-repo/emotion-backend:latest
+          ports:
+            - containerPort: 8080
